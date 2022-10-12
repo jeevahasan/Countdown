@@ -6,7 +6,6 @@ import android.os.SystemClock
 import android.util.Log
 import android.widget.Button
 import android.widget.Chronometer
-import com.google.android.material.snackbar.BaseTransientBottomBar
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,22 +28,33 @@ class MainActivity : AppCompatActivity() {
         //Get a reference to the countdown
         countdown = findViewById<Chronometer>(R.id.countdown)
 
+        countdown.onChronometerTickListener = Chronometer.OnChronometerTickListener { chronometer ->
+            if(chronometer.text.toString().equals("00:00",ignoreCase = true)) {
+                //Stop the countdown
+                countdown.stop()
+                //Set running = false
+                running = false
+            }
+        }  //To stop countdown if value 00:00
+
         // Restore the previous state (Bundle)
         if(savedInstanceState != null){
             offset = savedInstanceState.getLong(OFFSET_KEY)
             running = savedInstanceState.getBoolean(RUNNING_KEY)
+            input = savedInstanceState.getLong(INPUT_KEY)
             if(running){
                 countdown.base = savedInstanceState.getLong(BASE_KEY)
-                input = savedInstanceState.getLong(INPUT_KEY)
                 countdown.start()
             } else {
                 setBaseTime()
             }
         }
 
+
+
         val startButton = findViewById<Button>(R.id.start_button)
         startButton.setOnClickListener{
-            if(!running){
+            if(!running && countdown.text.toString() != "00:00"){
                 //Set base time
                 setBaseTime()
                 //Start the countdown
@@ -87,7 +97,7 @@ class MainActivity : AppCompatActivity() {
         //The sub button substract secs for offset
         val subButton = findViewById<Button>(R.id.sub_button)
         subButton.setOnClickListener {
-            if(input < 0) {
+            if(offset <= -5000) {
                 offset += 5000
                 setBaseTime()
                 input = offset
