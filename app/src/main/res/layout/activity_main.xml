@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity" >
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/sub_button"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sub" />
+
+        <Chronometer
+            android:id="@+id/countdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:textSize="56sp"
+            android:countDown="true" />
+
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add" />
+
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start" />
+
+    <Button
+        android:id="@+id/pause_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pause" />
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reset" />
+
+</LinearLayout>
