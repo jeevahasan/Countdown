@@ -15,6 +15,13 @@
         android:orientation="horizontal"
         android:gravity="center">
 
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-5s"
+        android:textSize="25sp"
+        android:layout_marginRight="5dp"/>
+
         <Button
             android:id="@+id/sub_button"
             android:layout_width="40dp"
@@ -34,6 +41,13 @@
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:text="@string/add" />
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+5s"
+        android:textSize="25sp"
+        android:layout_marginLeft="5dp"/>
 
     </LinearLayout>
     
